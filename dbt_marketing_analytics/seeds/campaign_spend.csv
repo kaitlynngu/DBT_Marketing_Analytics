@@ -1,0 +1,9 @@
+campaign_id,campaign_name,channel,start_date,end_date,spend_usd
+CAM001,winter_sale,email,2023-01-01,2023-01-31,2500.00
+CAM002,winter_sale,paid_social,2023-01-01,2023-01-31,8000.00
+CAM003,feb_promo,email,2023-02-01,2023-02-28,2000.00
+CAM004,feb_promo,paid_social,2023-02-01,2023-02-28,6500.00
+CAM005,spring_launch,email,2023-03-01,2023-03-31,3000.00
+CAM006,spring_launch,paid_social,2023-03-01,2023-03-31,9000.00
+CAM007,q2_push,email,2023-04-01,2023-04-30,2800.00
+CAM008,q2_push,paid_social,2023-04-01,2023-04-30,7500.00

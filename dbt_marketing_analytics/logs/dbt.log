@@ -1,0 +1,955 @@
+[0m01:01:32.577189 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc09db38740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc09e6de9f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc09c6b8230>]}
+
+
+============================== 01:01:32.581372 | 84aab04e-4361-400b-b66f-eacb51a58dd4 ==============================
+[0m01:01:32.581372 [info ] [MainThread]: Running with dbt=1.11.11
+[0m01:01:32.582003 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'target_path': 'None', 'profiles_dir': '/home/claude/dbt_marketing_analytics', 'quiet': 'False', 'no_print': 'None', 'use_colors': 'True', 'empty': 'None', 'static_parser': 'True', 'debug': 'False', 'log_cache_events': 'False', 'printer_width': '80', 'write_json': 'True', 'invocation_command': 'dbt seed', 'introspect': 'True', 'version_check': 'True', 'log_path': '/home/claude/dbt_marketing_analytics/logs', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None'}
+[0m01:01:32.870568 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc09e855a00>]}
+[0m01:01:32.948111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc09755c0b0>]}
+[0m01:01:32.949944 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m01:01:33.052555 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m01:01:33.053210 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m01:01:33.053566 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc09755d370>]}
+[0m01:01:34.655311 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on 'stg_customers'
+in package 'marketing_analytics' (models/schema.yml). Arguments to generic tests
+should be nested under the `arguments` property.
+[0m01:01:34.655912 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc096fcf890>]}
+[0m01:01:34.819141 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc096a256a0>]}
+[0m01:01:34.924040 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dbt_marketing_analytics/target/manifest.json
+[0m01:01:34.926186 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dbt_marketing_analytics/target/semantic_manifest.json
+[0m01:01:34.937485 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc096aa98b0>]}
+[0m01:01:34.938030 [info ] [MainThread]: Found 7 models, 3 seeds, 17 data tests, 485 macros
+[0m01:01:34.938432 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc0971f35c0>]}
+[0m01:01:34.940681 [info ] [MainThread]: 
+[0m01:01:34.941075 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m01:01:34.941344 [info ] [MainThread]: 
+[0m01:01:34.941856 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m01:01:34.947143 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_marketing_analytics'
+[0m01:01:35.187167 [debug] [ThreadPool]: Using duckdb connection "list_marketing_analytics"
+[0m01:01:35.187604 [debug] [ThreadPool]: On list_marketing_analytics: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "list_marketing_analytics"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"marketing_analytics"'
+    
+  
+  
+[0m01:01:35.187950 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m01:01:35.204291 [debug] [ThreadPool]: SQL status: OK in 0.016 seconds
+[0m01:01:35.205728 [debug] [ThreadPool]: On list_marketing_analytics: Close
+[0m01:01:35.206528 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_marketing_analytics, now create_marketing_analytics_main)
+[0m01:01:35.207028 [debug] [ThreadPool]: Creating schema "database: "marketing_analytics"
+schema: "main"
+"
+[0m01:01:35.214296 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:35.214627 [debug] [ThreadPool]: On create_marketing_analytics_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "create_marketing_analytics_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='marketing_analytics'
+        and type='sqlite'
+    
+  
+[0m01:01:35.214947 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m01:01:35.215931 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m01:01:35.217309 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:35.217609 [debug] [ThreadPool]: On create_marketing_analytics_main: BEGIN
+[0m01:01:35.218100 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m01:01:35.218434 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:35.218701 [debug] [ThreadPool]: On create_marketing_analytics_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "create_marketing_analytics_main"} */
+
+    
+    
+        create schema if not exists "marketing_analytics"."main"
+    
+[0m01:01:35.219272 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m01:01:35.220373 [debug] [ThreadPool]: On create_marketing_analytics_main: COMMIT
+[0m01:01:35.220706 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:35.221022 [debug] [ThreadPool]: On create_marketing_analytics_main: COMMIT
+[0m01:01:35.221451 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m01:01:35.221792 [debug] [ThreadPool]: On create_marketing_analytics_main: Close
+[0m01:01:35.223753 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_marketing_analytics_main'
+[0m01:01:35.229518 [debug] [ThreadPool]: Using duckdb connection "list_marketing_analytics_main"
+[0m01:01:35.229917 [debug] [ThreadPool]: On list_marketing_analytics_main: BEGIN
+[0m01:01:35.230233 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m01:01:35.230852 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m01:01:35.231133 [debug] [ThreadPool]: Using duckdb connection "list_marketing_analytics_main"
+[0m01:01:35.231394 [debug] [ThreadPool]: On list_marketing_analytics_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "list_marketing_analytics_main"} */
+select
+      'marketing_analytics' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'marketing_analytics'
+  
+[0m01:01:35.234609 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m01:01:35.235918 [debug] [ThreadPool]: On list_marketing_analytics_main: ROLLBACK
+[0m01:01:35.237146 [debug] [ThreadPool]: Failed to rollback 'list_marketing_analytics_main'
+[0m01:01:35.237438 [debug] [ThreadPool]: On list_marketing_analytics_main: Close
+[0m01:01:35.238086 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc096a9fc20>]}
+[0m01:01:35.238637 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:35.238962 [debug] [MainThread]: On master: BEGIN
+[0m01:01:35.239214 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m01:01:35.239734 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m01:01:35.240064 [debug] [MainThread]: On master: COMMIT
+[0m01:01:35.240331 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:35.240615 [debug] [MainThread]: On master: COMMIT
+[0m01:01:35.241093 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m01:01:35.241380 [debug] [MainThread]: On master: Close
+[0m01:01:35.244174 [debug] [Thread-1 (]: Began running node seed.marketing_analytics.campaign_spend
+[0m01:01:35.245070 [debug] [Thread-2 (]: Began running node seed.marketing_analytics.customers
+[0m01:01:35.245848 [debug] [Thread-3 (]: Began running node seed.marketing_analytics.transactions
+[0m01:01:35.244694 [info ] [Thread-1 (]: 1 of 3 START seed file main.campaign_spend ..................................... [RUN]
+[0m01:01:35.246837 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_marketing_analytics_main, now seed.marketing_analytics.campaign_spend)
+[0m01:01:35.247191 [debug] [Thread-1 (]: Began compiling node seed.marketing_analytics.campaign_spend
+[0m01:01:35.247520 [debug] [Thread-1 (]: Began executing node seed.marketing_analytics.campaign_spend
+[0m01:01:35.245506 [info ] [Thread-2 (]: 2 of 3 START seed file main.customers .......................................... [RUN]
+[0m01:01:35.253621 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly create_marketing_analytics_main, now seed.marketing_analytics.customers)
+[0m01:01:35.254069 [debug] [Thread-2 (]: Began compiling node seed.marketing_analytics.customers
+[0m01:01:35.246339 [info ] [Thread-3 (]: 3 of 3 START seed file main.transactions ....................................... [RUN]
+[0m01:01:35.255116 [debug] [Thread-3 (]: Acquiring new duckdb connection 'seed.marketing_analytics.transactions'
+[0m01:01:35.255430 [debug] [Thread-3 (]: Began compiling node seed.marketing_analytics.transactions
+[0m01:01:35.255747 [debug] [Thread-3 (]: Began executing node seed.marketing_analytics.transactions
+[0m01:01:35.254634 [debug] [Thread-2 (]: Began executing node seed.marketing_analytics.customers
+[0m01:01:35.320683 [debug] [Thread-1 (]: Using duckdb connection "seed.marketing_analytics.campaign_spend"
+[0m01:01:35.322320 [debug] [Thread-2 (]: Using duckdb connection "seed.marketing_analytics.customers"
+[0m01:01:35.321399 [debug] [Thread-3 (]: Using duckdb connection "seed.marketing_analytics.transactions"
+[0m01:01:35.323413 [debug] [Thread-3 (]: On seed.marketing_analytics.transactions: BEGIN
+[0m01:01:35.323725 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m01:01:35.322713 [debug] [Thread-1 (]: On seed.marketing_analytics.campaign_spend: BEGIN
+[0m01:01:35.325027 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m01:01:35.325694 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m01:01:35.323099 [debug] [Thread-2 (]: On seed.marketing_analytics.customers: BEGIN
+[0m01:01:35.326458 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m01:01:35.327077 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m01:01:35.327589 [debug] [Thread-2 (]: Using duckdb connection "seed.marketing_analytics.customers"
+[0m01:01:35.327976 [debug] [Thread-2 (]: On seed.marketing_analytics.customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "seed.marketing_analytics.customers"} */
+
+    create table "marketing_analytics"."main"."customers" ("customer_id" text,"acquisition_date" date,"acquisition_channel" text,"acquisition_campaign" text,"country" text,"age_group" text,"plan_tier" text)
+  
+[0m01:01:35.328820 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m01:01:35.324583 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m01:01:35.335417 [debug] [Thread-3 (]: Using duckdb connection "seed.marketing_analytics.transactions"
+[0m01:01:35.335819 [debug] [Thread-3 (]: On seed.marketing_analytics.transactions: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "seed.marketing_analytics.transactions"} */
+
+    create table "marketing_analytics"."main"."transactions" ("transaction_id" text,"customer_id" text,"transaction_date" date,"amount" float8,"product_category" text,"is_refund" boolean)
+  
+[0m01:01:35.336587 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m01:01:35.326068 [debug] [Thread-1 (]: Using duckdb connection "seed.marketing_analytics.campaign_spend"
+[0m01:01:35.353149 [debug] [Thread-1 (]: On seed.marketing_analytics.campaign_spend: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "seed.marketing_analytics.campaign_spend"} */
+
+    create table "marketing_analytics"."main"."campaign_spend" ("campaign_id" text,"campaign_name" text,"channel" text,"start_date" date,"end_date" date,"spend_usd" integer)
+  
+[0m01:01:35.354033 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m01:01:35.347479 [debug] [Thread-2 (]: Using duckdb connection "seed.marketing_analytics.customers"
+[0m01:01:35.355706 [debug] [Thread-2 (]: On seed.marketing_analytics.customers: 
+          COPY "marketing_analytics"."main"."customers" FROM '/home/claude/dbt_marketing_analytics/seeds/customers.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        ...
+[0m01:01:35.355338 [debug] [Thread-1 (]: Using duckdb connection "seed.marketing_analytics.campaign_spend"
+[0m01:01:35.358324 [debug] [Thread-1 (]: On seed.marketing_analytics.campaign_spend: 
+          COPY "marketing_analytics"."main"."campaign_spend" FROM '/home/claude/dbt_marketing_analytics/seeds/campaign_spend.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        ...
+[0m01:01:35.352732 [debug] [Thread-3 (]: Using duckdb connection "seed.marketing_analytics.transactions"
+[0m01:01:35.359085 [debug] [Thread-3 (]: On seed.marketing_analytics.transactions: 
+          COPY "marketing_analytics"."main"."transactions" FROM '/home/claude/dbt_marketing_analytics/seeds/transactions.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        ...
+[0m01:01:35.365308 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m01:01:35.373504 [debug] [Thread-2 (]: SQL status: OK in 0.017 seconds
+[0m01:01:35.376004 [debug] [Thread-2 (]: Writing runtime SQL for node "seed.marketing_analytics.customers"
+[0m01:01:35.374354 [debug] [Thread-1 (]: SQL status: OK in 0.016 seconds
+[0m01:01:35.384633 [debug] [Thread-1 (]: Writing runtime SQL for node "seed.marketing_analytics.campaign_spend"
+[0m01:01:35.384030 [debug] [Thread-3 (]: Writing runtime SQL for node "seed.marketing_analytics.transactions"
+[0m01:01:35.403307 [debug] [Thread-3 (]: On seed.marketing_analytics.transactions: COMMIT
+[0m01:01:35.409643 [debug] [Thread-3 (]: Using duckdb connection "seed.marketing_analytics.transactions"
+[0m01:01:35.410013 [debug] [Thread-3 (]: On seed.marketing_analytics.transactions: COMMIT
+[0m01:01:35.407610 [debug] [Thread-1 (]: On seed.marketing_analytics.campaign_spend: COMMIT
+[0m01:01:35.410510 [debug] [Thread-1 (]: Using duckdb connection "seed.marketing_analytics.campaign_spend"
+[0m01:01:35.410880 [debug] [Thread-1 (]: On seed.marketing_analytics.campaign_spend: COMMIT
+[0m01:01:35.409257 [debug] [Thread-2 (]: On seed.marketing_analytics.customers: COMMIT
+[0m01:01:35.412121 [debug] [Thread-2 (]: Using duckdb connection "seed.marketing_analytics.customers"
+[0m01:01:35.412449 [debug] [Thread-2 (]: On seed.marketing_analytics.customers: COMMIT
+[0m01:01:35.416064 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m01:01:35.418688 [debug] [Thread-1 (]: On seed.marketing_analytics.campaign_spend: Close
+[0m01:01:35.419164 [debug] [Thread-3 (]: SQL status: OK in 0.009 seconds
+[0m01:01:35.420349 [debug] [Thread-3 (]: On seed.marketing_analytics.transactions: Close
+[0m01:01:35.419525 [debug] [Thread-2 (]: SQL status: OK in 0.007 seconds
+[0m01:01:35.422900 [debug] [Thread-2 (]: On seed.marketing_analytics.customers: Close
+[0m01:01:35.423397 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc096c7c6e0>]}
+[0m01:01:35.424389 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc096c7f290>]}
+[0m01:01:35.423931 [info ] [Thread-2 (]: 2 of 3 OK loaded seed file main.customers ...................................... [[32mINSERT 20[0m in 0.17s]
+[0m01:01:35.425456 [debug] [Thread-2 (]: Finished running node seed.marketing_analytics.customers
+[0m01:01:35.424896 [info ] [Thread-1 (]: 1 of 3 OK loaded seed file main.campaign_spend ................................. [[32mINSERT 8[0m in 0.18s]
+[0m01:01:35.426168 [debug] [Thread-1 (]: Finished running node seed.marketing_analytics.campaign_spend
+[0m01:01:35.422020 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '84aab04e-4361-400b-b66f-eacb51a58dd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc0960cff80>]}
+[0m01:01:35.426789 [info ] [Thread-3 (]: 3 of 3 OK loaded seed file main.transactions ................................... [[32mINSERT 30[0m in 0.17s]
+[0m01:01:35.427346 [debug] [Thread-3 (]: Finished running node seed.marketing_analytics.transactions
+[0m01:01:35.428811 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:35.429124 [debug] [MainThread]: On master: BEGIN
+[0m01:01:35.429378 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m01:01:35.429961 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m01:01:35.430458 [debug] [MainThread]: On master: COMMIT
+[0m01:01:35.430770 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:35.431042 [debug] [MainThread]: On master: COMMIT
+[0m01:01:35.431500 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m01:01:35.431834 [debug] [MainThread]: On master: Close
+[0m01:01:35.432225 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m01:01:35.432484 [debug] [MainThread]: Connection 'seed.marketing_analytics.customers' was properly closed.
+[0m01:01:35.432714 [debug] [MainThread]: Connection 'seed.marketing_analytics.campaign_spend' was properly closed.
+[0m01:01:35.432992 [debug] [MainThread]: Connection 'seed.marketing_analytics.transactions' was properly closed.
+[0m01:01:35.433285 [info ] [MainThread]: 
+[0m01:01:35.433591 [info ] [MainThread]: Finished running 3 seeds in 0 hours 0 minutes and 0.49 seconds (0.49s).
+[0m01:01:35.434585 [debug] [MainThread]: Command end result
+[0m01:01:35.469264 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dbt_marketing_analytics/target/manifest.json
+[0m01:01:35.471160 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dbt_marketing_analytics/target/semantic_manifest.json
+[0m01:01:35.477105 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/claude/dbt_marketing_analytics/target/run_results.json
+[0m01:01:35.477399 [info ] [MainThread]: 
+[0m01:01:35.477839 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m01:01:35.478196 [info ] [MainThread]: 
+[0m01:01:35.478520 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m01:01:35.479161 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 4 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m01:01:35.480461 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": true, "command_wall_clock_time": 2.975777, "process_in_blocks": "40640", "process_kernel_time": 0.251554, "process_mem_max_rss": "172080", "process_out_blocks": "5296", "process_user_time": 4.344087}
+[0m01:01:35.480984 [debug] [MainThread]: Command `dbt seed` succeeded at 01:01:35.480875 after 2.98 seconds
+[0m01:01:35.481394 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc0970eeb40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc097083530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fc097083560>]}
+[0m01:01:35.481763 [debug] [MainThread]: Flushing usage events
+[0m01:01:35.545802 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m01:01:40.484855 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4e0d9fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4ffa3f20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4df1b140>]}
+
+
+============================== 01:01:40.488481 | ec72f695-d4ee-4493-8a9e-1ab428bfdc36 ==============================
+[0m01:01:40.488481 [info ] [MainThread]: Running with dbt=1.11.11
+[0m01:01:40.489037 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'partial_parse': 'True', 'no_print': 'None', 'log_cache_events': 'False', 'debug': 'False', 'version_check': 'True', 'log_path': '/home/claude/dbt_marketing_analytics/logs', 'use_colors': 'True', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'warn_error': 'None', 'invocation_command': 'dbt run', 'use_experimental_parser': 'False', 'profiles_dir': '/home/claude/dbt_marketing_analytics', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'write_json': 'True', 'cache_selected_only': 'False'}
+[0m01:01:40.765425 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4df111c0>]}
+[0m01:01:40.844761 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4df1b140>]}
+[0m01:01:40.846767 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m01:01:40.949286 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m01:01:41.085983 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m01:01:41.086602 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m01:01:41.086881 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m01:01:41.148648 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc48738290>]}
+[0m01:01:41.253617 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dbt_marketing_analytics/target/manifest.json
+[0m01:01:41.255933 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dbt_marketing_analytics/target/semantic_manifest.json
+[0m01:01:41.266804 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc48601a90>]}
+[0m01:01:41.267447 [info ] [MainThread]: Found 7 models, 3 seeds, 17 data tests, 485 macros
+[0m01:01:41.267835 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc485cea80>]}
+[0m01:01:41.270230 [info ] [MainThread]: 
+[0m01:01:41.270575 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m01:01:41.270843 [info ] [MainThread]: 
+[0m01:01:41.271367 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m01:01:41.277284 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_marketing_analytics'
+[0m01:01:41.318555 [debug] [ThreadPool]: Using duckdb connection "list_marketing_analytics"
+[0m01:01:41.318996 [debug] [ThreadPool]: On list_marketing_analytics: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "list_marketing_analytics"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"marketing_analytics"'
+    
+  
+  
+[0m01:01:41.319368 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m01:01:41.337841 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m01:01:41.339649 [debug] [ThreadPool]: On list_marketing_analytics: Close
+[0m01:01:41.340435 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_marketing_analytics, now create_marketing_analytics_main)
+[0m01:01:41.340906 [debug] [ThreadPool]: Creating schema "database: "marketing_analytics"
+schema: "main"
+"
+[0m01:01:41.348726 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:41.349059 [debug] [ThreadPool]: On create_marketing_analytics_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "create_marketing_analytics_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='marketing_analytics'
+        and type='sqlite'
+    
+  
+[0m01:01:41.349396 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m01:01:41.350471 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m01:01:41.351941 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:41.352295 [debug] [ThreadPool]: On create_marketing_analytics_main: BEGIN
+[0m01:01:41.352766 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m01:01:41.353051 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:41.353373 [debug] [ThreadPool]: On create_marketing_analytics_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "create_marketing_analytics_main"} */
+
+    
+    
+        create schema if not exists "marketing_analytics"."main"
+    
+[0m01:01:41.353927 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m01:01:41.354851 [debug] [ThreadPool]: On create_marketing_analytics_main: COMMIT
+[0m01:01:41.355223 [debug] [ThreadPool]: Using duckdb connection "create_marketing_analytics_main"
+[0m01:01:41.355494 [debug] [ThreadPool]: On create_marketing_analytics_main: COMMIT
+[0m01:01:41.355934 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m01:01:41.356294 [debug] [ThreadPool]: On create_marketing_analytics_main: Close
+[0m01:01:41.358309 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_marketing_analytics_main, now list_marketing_analytics_main)
+[0m01:01:41.364200 [debug] [ThreadPool]: Using duckdb connection "list_marketing_analytics_main"
+[0m01:01:41.364500 [debug] [ThreadPool]: On list_marketing_analytics_main: BEGIN
+[0m01:01:41.364745 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m01:01:41.365358 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m01:01:41.365642 [debug] [ThreadPool]: Using duckdb connection "list_marketing_analytics_main"
+[0m01:01:41.365904 [debug] [ThreadPool]: On list_marketing_analytics_main: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "connection_name": "list_marketing_analytics_main"} */
+select
+      'marketing_analytics' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'marketing_analytics'
+  
+[0m01:01:41.369383 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m01:01:41.370897 [debug] [ThreadPool]: On list_marketing_analytics_main: ROLLBACK
+[0m01:01:41.372143 [debug] [ThreadPool]: Failed to rollback 'list_marketing_analytics_main'
+[0m01:01:41.372440 [debug] [ThreadPool]: On list_marketing_analytics_main: Close
+[0m01:01:41.373632 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc485ccda0>]}
+[0m01:01:41.374177 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:41.374473 [debug] [MainThread]: On master: BEGIN
+[0m01:01:41.374766 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m01:01:41.375344 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m01:01:41.375647 [debug] [MainThread]: On master: COMMIT
+[0m01:01:41.375929 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:41.376309 [debug] [MainThread]: On master: COMMIT
+[0m01:01:41.376802 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m01:01:41.377155 [debug] [MainThread]: On master: Close
+[0m01:01:41.379679 [debug] [Thread-1 (]: Began running node model.marketing_analytics.stg_campaign_spend
+[0m01:01:41.380605 [debug] [Thread-2 (]: Began running node model.marketing_analytics.stg_customers
+[0m01:01:41.381401 [debug] [Thread-3 (]: Began running node model.marketing_analytics.stg_transactions
+[0m01:01:41.380271 [info ] [Thread-1 (]: 1 of 7 START sql view model main.stg_campaign_spend ............................ [RUN]
+[0m01:01:41.382340 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_marketing_analytics_main, now model.marketing_analytics.stg_campaign_spend)
+[0m01:01:41.382691 [debug] [Thread-1 (]: Began compiling node model.marketing_analytics.stg_campaign_spend
+[0m01:01:41.390788 [debug] [Thread-1 (]: Writing injected SQL for node "model.marketing_analytics.stg_campaign_spend"
+[0m01:01:41.381054 [info ] [Thread-2 (]: 2 of 7 START sql view model main.stg_customers ................................. [RUN]
+[0m01:01:41.391633 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.marketing_analytics.stg_customers'
+[0m01:01:41.391988 [debug] [Thread-2 (]: Began compiling node model.marketing_analytics.stg_customers
+[0m01:01:41.381815 [info ] [Thread-3 (]: 3 of 7 START sql view model main.stg_transactions .............................. [RUN]
+[0m01:01:41.395707 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.marketing_analytics.stg_transactions'
+[0m01:01:41.396048 [debug] [Thread-3 (]: Began compiling node model.marketing_analytics.stg_transactions
+[0m01:01:41.395196 [debug] [Thread-2 (]: Writing injected SQL for node "model.marketing_analytics.stg_customers"
+[0m01:01:41.400009 [debug] [Thread-2 (]: Began executing node model.marketing_analytics.stg_customers
+[0m01:01:41.399518 [debug] [Thread-1 (]: Began executing node model.marketing_analytics.stg_campaign_spend
+[0m01:01:41.398893 [debug] [Thread-3 (]: Writing injected SQL for node "model.marketing_analytics.stg_transactions"
+[0m01:01:41.511700 [debug] [Thread-3 (]: Began executing node model.marketing_analytics.stg_transactions
+[0m01:01:41.537787 [debug] [Thread-2 (]: Writing runtime sql for node "model.marketing_analytics.stg_customers"
+[0m01:01:41.538657 [debug] [Thread-1 (]: Writing runtime sql for node "model.marketing_analytics.stg_campaign_spend"
+[0m01:01:41.542329 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.stg_campaign_spend"
+[0m01:01:41.542682 [debug] [Thread-1 (]: On model.marketing_analytics.stg_campaign_spend: BEGIN
+[0m01:01:41.542993 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m01:01:41.543912 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.544310 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.stg_campaign_spend"
+[0m01:01:41.544652 [debug] [Thread-1 (]: On model.marketing_analytics.stg_campaign_spend: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_campaign_spend"} */
+
+  
+  create view "marketing_analytics"."main"."stg_campaign_spend__dbt_tmp" as (
+    -- stg_campaign_spend.sql
+-- Cleans and standardizes campaign spend data
+
+with source as (
+    select * from "marketing_analytics"."main"."campaign_spend"
+),
+
+staged as (
+    select
+        campaign_id,
+        lower(campaign_name)            as campaign_name,
+        lower(channel)                  as channel,
+        cast(start_date as date)        as start_date,
+        cast(end_date as date)          as end_date,
+        cast(spend_usd as decimal(10,2)) as spend_usd,
+        date_trunc('month', cast(start_date as date)) as campaign_month
+    from source
+    where campaign_id is not null
+)
+
+select * from staged
+  );
+
+[0m01:01:41.540629 [debug] [Thread-3 (]: Writing runtime sql for node "model.marketing_analytics.stg_transactions"
+[0m01:01:41.546152 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.stg_transactions"
+[0m01:01:41.546511 [debug] [Thread-3 (]: On model.marketing_analytics.stg_transactions: BEGIN
+[0m01:01:41.546811 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m01:01:41.547536 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.547871 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.stg_transactions"
+[0m01:01:41.548291 [debug] [Thread-3 (]: On model.marketing_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_transactions"} */
+
+  
+  create view "marketing_analytics"."main"."stg_transactions__dbt_tmp" as (
+    -- stg_transactions.sql
+-- Cleans and standardizes the raw transactions seed data
+
+with source as (
+    select * from "marketing_analytics"."main"."transactions"
+),
+
+staged as (
+    select
+        transaction_id,
+        customer_id,
+        cast(transaction_date as date)              as transaction_date,
+        cast(amount as decimal(10,2))               as amount,
+        lower(product_category)                     as product_category,
+        cast(is_refund as boolean)                  as is_refund,
+        date_trunc('month', cast(transaction_date as date)) as transaction_month,
+
+        -- net amount excluding refunds
+        case
+            when cast(is_refund as boolean) = true then 0
+            else cast(amount as decimal(10,2))
+        end                                         as net_amount
+    from source
+    where transaction_id is not null
+)
+
+select * from staged
+  );
+
+[0m01:01:41.549681 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.541554 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.stg_customers"
+[0m01:01:41.555426 [debug] [Thread-2 (]: On model.marketing_analytics.stg_customers: BEGIN
+[0m01:01:41.555759 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m01:01:41.556553 [debug] [Thread-1 (]: SQL status: OK in 0.012 seconds
+[0m01:01:41.561771 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.stg_campaign_spend"
+[0m01:01:41.564670 [debug] [Thread-1 (]: On model.marketing_analytics.stg_campaign_spend: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_campaign_spend"} */
+alter view "marketing_analytics"."main"."stg_campaign_spend__dbt_tmp" rename to "stg_campaign_spend"
+[0m01:01:41.565435 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.562299 [debug] [Thread-2 (]: SQL status: OK in 0.007 seconds
+[0m01:01:41.571634 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.stg_customers"
+[0m01:01:41.572015 [debug] [Thread-2 (]: On model.marketing_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_customers"} */
+
+  
+  create view "marketing_analytics"."main"."stg_customers__dbt_tmp" as (
+    -- stg_customers.sql
+-- Cleans and standardizes the raw customers seed data
+
+with source as (
+    select * from "marketing_analytics"."main"."customers"
+),
+
+staged as (
+    select
+        customer_id,
+        cast(acquisition_date as date)          as acquisition_date,
+        lower(acquisition_channel)              as acquisition_channel,
+        lower(acquisition_campaign)             as acquisition_campaign,
+        upper(country)                          as country,
+        age_group,
+        lower(plan_tier)                        as plan_tier,
+        date_trunc('month', cast(acquisition_date as date)) as acquisition_month
+    from source
+    where customer_id is not null
+)
+
+select * from staged
+  );
+
+[0m01:01:41.573354 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.564301 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.stg_transactions"
+[0m01:01:41.577168 [debug] [Thread-3 (]: On model.marketing_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_transactions"} */
+alter view "marketing_analytics"."main"."stg_transactions__dbt_tmp" rename to "stg_transactions"
+[0m01:01:41.577919 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.576735 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.stg_customers"
+[0m01:01:41.595032 [debug] [Thread-2 (]: On model.marketing_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_customers"} */
+alter view "marketing_analytics"."main"."stg_customers__dbt_tmp" rename to "stg_customers"
+[0m01:01:41.596025 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.597512 [debug] [Thread-2 (]: On model.marketing_analytics.stg_customers: COMMIT
+[0m01:01:41.591614 [debug] [Thread-1 (]: On model.marketing_analytics.stg_campaign_spend: COMMIT
+[0m01:01:41.598381 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.stg_campaign_spend"
+[0m01:01:41.598725 [debug] [Thread-1 (]: On model.marketing_analytics.stg_campaign_spend: COMMIT
+[0m01:01:41.594534 [debug] [Thread-3 (]: On model.marketing_analytics.stg_transactions: COMMIT
+[0m01:01:41.599302 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.stg_transactions"
+[0m01:01:41.599622 [debug] [Thread-3 (]: On model.marketing_analytics.stg_transactions: COMMIT
+[0m01:01:41.597910 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.stg_customers"
+[0m01:01:41.600914 [debug] [Thread-2 (]: On model.marketing_analytics.stg_customers: COMMIT
+[0m01:01:41.626477 [debug] [Thread-3 (]: SQL status: OK in 0.026 seconds
+[0m01:01:41.633204 [debug] [Thread-2 (]: SQL status: OK in 0.032 seconds
+[0m01:01:41.638015 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.stg_customers"
+[0m01:01:41.639776 [debug] [Thread-2 (]: On model.marketing_analytics.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_customers"} */
+
+      drop view if exists "marketing_analytics"."main"."stg_customers__dbt_backup" cascade
+    
+[0m01:01:41.640581 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.639400 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.stg_transactions"
+[0m01:01:41.644391 [debug] [Thread-3 (]: On model.marketing_analytics.stg_transactions: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_transactions"} */
+
+      drop view if exists "marketing_analytics"."main"."stg_transactions__dbt_backup" cascade
+    
+[0m01:01:41.645131 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.643975 [debug] [Thread-1 (]: SQL status: OK in 0.045 seconds
+[0m01:01:41.643547 [debug] [Thread-2 (]: On model.marketing_analytics.stg_customers: Close
+[0m01:01:41.653032 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4def67e0>]}
+[0m01:01:41.646573 [debug] [Thread-3 (]: On model.marketing_analytics.stg_transactions: Close
+[0m01:01:41.654344 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc479e43b0>]}
+[0m01:01:41.653729 [info ] [Thread-2 (]: 2 of 7 OK created sql view model main.stg_customers ............................ [[32mOK[0m in 0.26s]
+[0m01:01:41.654909 [info ] [Thread-3 (]: 3 of 7 OK created sql view model main.stg_transactions ......................... [[32mOK[0m in 0.26s]
+[0m01:01:41.651266 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.stg_campaign_spend"
+[0m01:01:41.656598 [debug] [Thread-1 (]: On model.marketing_analytics.stg_campaign_spend: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.stg_campaign_spend"} */
+
+      drop view if exists "marketing_analytics"."main"."stg_campaign_spend__dbt_backup" cascade
+    
+[0m01:01:41.657383 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.656163 [debug] [Thread-3 (]: Finished running node model.marketing_analytics.stg_transactions
+[0m01:01:41.655611 [debug] [Thread-2 (]: Finished running node model.marketing_analytics.stg_customers
+[0m01:01:41.658802 [debug] [Thread-1 (]: On model.marketing_analytics.stg_campaign_spend: Close
+[0m01:01:41.660808 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4799a300>]}
+[0m01:01:41.659961 [debug] [Thread-2 (]: Began running node model.marketing_analytics.mart_cohort_retention
+[0m01:01:41.660320 [debug] [Thread-3 (]: Began running node model.marketing_analytics.mart_ltv
+[0m01:01:41.659584 [debug] [Thread-4 (]: Began running node model.marketing_analytics.mart_churn_risk
+[0m01:01:41.661418 [info ] [Thread-1 (]: 1 of 7 OK created sql view model main.stg_campaign_spend ....................... [[32mOK[0m in 0.28s]
+[0m01:01:41.661875 [info ] [Thread-2 (]: 5 of 7 START sql table model main.mart_cohort_retention ........................ [RUN]
+[0m01:01:41.662439 [info ] [Thread-3 (]: 6 of 7 START sql table model main.mart_ltv ..................................... [RUN]
+[0m01:01:41.664236 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.marketing_analytics.stg_transactions, now model.marketing_analytics.mart_ltv)
+[0m01:01:41.664587 [debug] [Thread-3 (]: Began compiling node model.marketing_analytics.mart_ltv
+[0m01:01:41.662868 [info ] [Thread-4 (]: 4 of 7 START sql table model main.mart_churn_risk .............................. [RUN]
+[0m01:01:41.663673 [debug] [Thread-1 (]: Finished running node model.marketing_analytics.stg_campaign_spend
+[0m01:01:41.668856 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.marketing_analytics.stg_customers, now model.marketing_analytics.mart_cohort_retention)
+[0m01:01:41.669256 [debug] [Thread-2 (]: Began compiling node model.marketing_analytics.mart_cohort_retention
+[0m01:01:41.668534 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.marketing_analytics.mart_churn_risk'
+[0m01:01:41.667913 [debug] [Thread-3 (]: Writing injected SQL for node "model.marketing_analytics.mart_ltv"
+[0m01:01:41.673362 [debug] [Thread-3 (]: Began executing node model.marketing_analytics.mart_ltv
+[0m01:01:41.672779 [debug] [Thread-4 (]: Began compiling node model.marketing_analytics.mart_churn_risk
+[0m01:01:41.672393 [debug] [Thread-2 (]: Writing injected SQL for node "model.marketing_analytics.mart_cohort_retention"
+[0m01:01:41.683249 [debug] [Thread-2 (]: Began executing node model.marketing_analytics.mart_cohort_retention
+[0m01:01:41.682624 [debug] [Thread-4 (]: Writing injected SQL for node "model.marketing_analytics.mart_churn_risk"
+[0m01:01:41.700197 [debug] [Thread-4 (]: Began executing node model.marketing_analytics.mart_churn_risk
+[0m01:01:41.699460 [debug] [Thread-1 (]: Began running node model.marketing_analytics.mart_cac
+[0m01:01:41.707600 [info ] [Thread-1 (]: 7 of 7 START sql table model main.mart_cac ..................................... [RUN]
+[0m01:01:41.722826 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.marketing_analytics.stg_campaign_spend, now model.marketing_analytics.mart_cac)
+[0m01:01:41.723267 [debug] [Thread-1 (]: Began compiling node model.marketing_analytics.mart_cac
+[0m01:01:41.726799 [debug] [Thread-1 (]: Writing injected SQL for node "model.marketing_analytics.mart_cac"
+[0m01:01:41.736522 [debug] [Thread-1 (]: Began executing node model.marketing_analytics.mart_cac
+[0m01:01:41.722219 [debug] [Thread-4 (]: Writing runtime sql for node "model.marketing_analytics.mart_churn_risk"
+[0m01:01:41.740666 [debug] [Thread-4 (]: Using duckdb connection "model.marketing_analytics.mart_churn_risk"
+[0m01:01:41.741066 [debug] [Thread-4 (]: On model.marketing_analytics.mart_churn_risk: BEGIN
+[0m01:01:41.741408 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m01:01:41.733179 [debug] [Thread-2 (]: Writing runtime sql for node "model.marketing_analytics.mart_cohort_retention"
+[0m01:01:41.742209 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.mart_cohort_retention"
+[0m01:01:41.742555 [debug] [Thread-2 (]: On model.marketing_analytics.mart_cohort_retention: BEGIN
+[0m01:01:41.742856 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m01:01:41.743616 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.743958 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.mart_cohort_retention"
+[0m01:01:41.744406 [debug] [Thread-2 (]: On model.marketing_analytics.mart_cohort_retention: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_cohort_retention"} */
+
+  
+    
+    
+
+    create  table
+      "marketing_analytics"."main"."mart_cohort_retention__dbt_tmp"
+  
+    as (
+      -- mart_cohort_retention.sql
+-- Monthly cohort retention analysis
+-- Tracks what % of customers from each acquisition cohort
+-- are still transacting in subsequent months
+
+with customers as (
+    select * from "marketing_analytics"."main"."stg_customers"
+),
+
+transactions as (
+    select * from "marketing_analytics"."main"."stg_transactions"
+),
+
+-- join customers to transactions to get cohort and activity month
+customer_activity as (
+    select
+        c.customer_id,
+        c.acquisition_month                             as cohort_month,
+        t.transaction_month                             as activity_month,
+        datediff('month',
+            c.acquisition_month,
+            t.transaction_month
+        )                                               as months_since_acquisition
+    from customers c
+    inner join transactions t on c.customer_id = t.customer_id
+    where t.is_refund = false
+),
+
+-- count unique active customers per cohort per month offset
+cohort_activity as (
+    select
+        cohort_month,
+        months_since_acquisition,
+        count(distinct customer_id)     as active_customers
+    from customer_activity
+    group by 1, 2
+),
+
+-- get cohort size (month 0 = acquisition month)
+cohort_size as (
+    select
+        cohort_month,
+        active_customers                as cohort_size
+    from cohort_activity
+    where months_since_acquisition = 0
+),
+
+final as (
+    select
+        a.cohort_month,
+        a.months_since_acquisition,
+        a.active_customers,
+        s.cohort_size,
+        round(
+            100.0 * a.active_customers / s.cohort_size,
+            1
+        )                               as retention_rate_pct
+    from cohort_activity a
+    left join cohort_size s on a.cohort_month = s.cohort_month
+)
+
+select * from final
+order by cohort_month, months_since_acquisition
+    );
+  
+  
+[0m01:01:41.735799 [debug] [Thread-3 (]: Writing runtime sql for node "model.marketing_analytics.mart_ltv"
+[0m01:01:41.745425 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.mart_ltv"
+[0m01:01:41.745764 [debug] [Thread-3 (]: On model.marketing_analytics.mart_ltv: BEGIN
+[0m01:01:41.739987 [debug] [Thread-1 (]: Writing runtime sql for node "model.marketing_analytics.mart_cac"
+[0m01:01:41.747505 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.mart_cac"
+[0m01:01:41.747838 [debug] [Thread-1 (]: On model.marketing_analytics.mart_cac: BEGIN
+[0m01:01:41.748272 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m01:01:41.748876 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.749275 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.mart_cac"
+[0m01:01:41.749647 [debug] [Thread-1 (]: On model.marketing_analytics.mart_cac: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_cac"} */
+
+  
+    
+    
+
+    create  table
+      "marketing_analytics"."main"."mart_cac__dbt_tmp"
+  
+    as (
+      -- mart_cac.sql
+-- Customer Acquisition Cost by channel and campaign month
+-- CAC = total spend / number of new customers acquired
+
+with customers as (
+    select * from "marketing_analytics"."main"."stg_customers"
+),
+
+spend as (
+    select * from "marketing_analytics"."main"."stg_campaign_spend"
+),
+
+-- count new customers per channel per month
+acquisitions as (
+    select
+        acquisition_channel     as channel,
+        acquisition_month,
+        count(customer_id)      as new_customers
+    from customers
+    group by 1, 2
+),
+
+-- sum spend per channel per month
+channel_spend as (
+    select
+        channel,
+        campaign_month,
+        sum(spend_usd)          as total_spend
+    from spend
+    group by 1, 2
+),
+
+-- join and calculate CAC
+final as (
+    select
+        a.channel,
+        a.acquisition_month,
+        a.new_customers,
+        coalesce(s.total_spend, 0)                                      as total_spend,
+        case
+            when a.new_customers = 0 then null
+            else round(coalesce(s.total_spend, 0) / a.new_customers, 2)
+        end                                                             as cac_usd
+    from acquisitions a
+    left join channel_spend s
+        on a.channel = s.channel
+        and a.acquisition_month = s.campaign_month
+)
+
+select * from final
+order by acquisition_month, channel
+    );
+  
+  
+[0m01:01:41.746169 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m01:01:41.750711 [debug] [Thread-3 (]: SQL status: OK in 0.005 seconds
+[0m01:01:41.751126 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.mart_ltv"
+[0m01:01:41.751532 [debug] [Thread-3 (]: On model.marketing_analytics.mart_ltv: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_ltv"} */
+
+  
+    
+    
+
+    create  table
+      "marketing_analytics"."main"."mart_ltv__dbt_tmp"
+  
+    as (
+      -- mart_ltv.sql
+-- Customer Lifetime Value — total net revenue per customer
+-- with segmentation by channel, plan tier, and cohort month
+
+with customers as (
+    select * from "marketing_analytics"."main"."stg_customers"
+),
+
+transactions as (
+    select * from "marketing_analytics"."main"."stg_transactions"
+),
+
+-- aggregate revenue per customer
+customer_revenue as (
+    select
+        customer_id,
+        sum(net_amount)             as total_revenue,
+        count(transaction_id)       as total_transactions,
+        min(transaction_date)       as first_purchase_date,
+        max(transaction_date)       as last_purchase_date,
+        datediff('day',
+            min(transaction_date),
+            max(transaction_date)
+        )                           as customer_lifespan_days
+    from transactions
+    group by 1
+),
+
+final as (
+    select
+        c.customer_id,
+        c.acquisition_channel,
+        c.acquisition_campaign,
+        c.plan_tier,
+        c.acquisition_month,
+        c.country,
+        c.age_group,
+        coalesce(r.total_revenue, 0)        as ltv_usd,
+        coalesce(r.total_transactions, 0)   as total_transactions,
+        r.first_purchase_date,
+        r.last_purchase_date,
+        coalesce(r.customer_lifespan_days, 0) as lifespan_days,
+
+        -- LTV tier segmentation
+        case
+            when coalesce(r.total_revenue, 0) >= 150  then 'high'
+            when coalesce(r.total_revenue, 0) >= 50   then 'medium'
+            else 'low'
+        end                                 as ltv_tier
+    from customers c
+    left join customer_revenue r on c.customer_id = r.customer_id
+)
+
+select * from final
+order by ltv_usd desc
+    );
+  
+  
+[0m01:01:41.746803 [debug] [Thread-4 (]: SQL status: OK in 0.005 seconds
+[0m01:01:41.753275 [debug] [Thread-4 (]: Using duckdb connection "model.marketing_analytics.mart_churn_risk"
+[0m01:01:41.753703 [debug] [Thread-4 (]: On model.marketing_analytics.mart_churn_risk: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_churn_risk"} */
+
+  
+    
+    
+
+    create  table
+      "marketing_analytics"."main"."mart_churn_risk__dbt_tmp"
+  
+    as (
+      -- mart_churn_risk.sql
+-- Churn risk scoring based on recency of last transaction
+-- and number of months since acquisition
+-- Simple rule-based scorer — good foundation for ML extension
+
+with customers as (
+    select * from "marketing_analytics"."main"."stg_customers"
+),
+
+transactions as (
+    select * from "marketing_analytics"."main"."stg_transactions"
+),
+
+-- get last activity per customer
+last_activity as (
+    select
+        customer_id,
+        max(transaction_date)       as last_transaction_date,
+        count(transaction_id)       as total_transactions,
+        sum(net_amount)             as total_revenue
+    from transactions
+    where is_refund = false
+    group by 1
+),
+
+final as (
+    select
+        c.customer_id,
+        c.acquisition_channel,
+        c.plan_tier,
+        c.acquisition_month,
+        l.last_transaction_date,
+        l.total_transactions,
+        l.total_revenue,
+
+        -- days since last transaction (as of latest data point)
+        datediff('day',
+            l.last_transaction_date,
+            cast('2023-04-30' as date)
+        )                                           as days_since_last_txn,
+
+        -- churn risk score (rule-based)
+        case
+            when l.last_transaction_date is null then 'high'
+            when datediff('day',
+                l.last_transaction_date,
+                cast('2023-04-30' as date)
+            ) > 60 then 'high'
+            when datediff('day',
+                l.last_transaction_date,
+                cast('2023-04-30' as date)
+            ) > 30 then 'medium'
+            else 'low'
+        end                                         as churn_risk,
+
+        -- flag customers with no transactions at all
+        case
+            when l.customer_id is null then true
+            else false
+        end                                         as never_transacted
+
+    from customers c
+    left join last_activity l on c.customer_id = l.customer_id
+)
+
+select * from final
+order by days_since_last_txn desc nulls first
+    );
+  
+  
+[0m01:01:41.772513 [debug] [Thread-1 (]: SQL status: OK in 0.022 seconds
+[0m01:01:41.779631 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.mart_cac"
+[0m01:01:41.784457 [debug] [Thread-1 (]: On model.marketing_analytics.mart_cac: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_cac"} */
+alter table "marketing_analytics"."main"."mart_cac__dbt_tmp" rename to "mart_cac"
+[0m01:01:41.785287 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.781545 [debug] [Thread-4 (]: SQL status: OK in 0.027 seconds
+[0m01:01:41.793620 [debug] [Thread-4 (]: Using duckdb connection "model.marketing_analytics.mart_churn_risk"
+[0m01:01:41.782812 [debug] [Thread-2 (]: SQL status: OK in 0.038 seconds
+[0m01:01:41.783980 [debug] [Thread-3 (]: SQL status: OK in 0.032 seconds
+[0m01:01:41.794006 [debug] [Thread-4 (]: On model.marketing_analytics.mart_churn_risk: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_churn_risk"} */
+alter table "marketing_analytics"."main"."mart_churn_risk__dbt_tmp" rename to "mart_churn_risk"
+[0m01:01:41.801667 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m01:01:41.800681 [debug] [Thread-1 (]: On model.marketing_analytics.mart_cac: COMMIT
+[0m01:01:41.803580 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.mart_cac"
+[0m01:01:41.803901 [debug] [Thread-1 (]: On model.marketing_analytics.mart_cac: COMMIT
+[0m01:01:41.797158 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.mart_cohort_retention"
+[0m01:01:41.804879 [debug] [Thread-2 (]: On model.marketing_analytics.mart_cohort_retention: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_cohort_retention"} */
+alter table "marketing_analytics"."main"."mart_cohort_retention__dbt_tmp" rename to "mart_cohort_retention"
+[0m01:01:41.805673 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.800150 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.mart_ltv"
+[0m01:01:41.807845 [debug] [Thread-3 (]: On model.marketing_analytics.mart_ltv: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_ltv"} */
+alter table "marketing_analytics"."main"."mart_ltv__dbt_tmp" rename to "mart_ltv"
+[0m01:01:41.808607 [debug] [Thread-3 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.803195 [debug] [Thread-4 (]: On model.marketing_analytics.mart_churn_risk: COMMIT
+[0m01:01:41.810472 [debug] [Thread-4 (]: Using duckdb connection "model.marketing_analytics.mart_churn_risk"
+[0m01:01:41.810805 [debug] [Thread-4 (]: On model.marketing_analytics.mart_churn_risk: COMMIT
+[0m01:01:41.811748 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m01:01:41.807295 [debug] [Thread-2 (]: On model.marketing_analytics.mart_cohort_retention: COMMIT
+[0m01:01:41.815154 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.mart_cohort_retention"
+[0m01:01:41.815496 [debug] [Thread-2 (]: On model.marketing_analytics.mart_cohort_retention: COMMIT
+[0m01:01:41.809979 [debug] [Thread-3 (]: On model.marketing_analytics.mart_ltv: COMMIT
+[0m01:01:41.816090 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.mart_ltv"
+[0m01:01:41.816430 [debug] [Thread-3 (]: On model.marketing_analytics.mart_ltv: COMMIT
+[0m01:01:41.817475 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m01:01:41.814679 [debug] [Thread-1 (]: Using duckdb connection "model.marketing_analytics.mart_cac"
+[0m01:01:41.821174 [debug] [Thread-1 (]: On model.marketing_analytics.mart_cac: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_cac"} */
+
+      drop table if exists "marketing_analytics"."main"."mart_cac__dbt_backup" cascade
+    
+[0m01:01:41.821856 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.820612 [debug] [Thread-4 (]: Using duckdb connection "model.marketing_analytics.mart_churn_risk"
+[0m01:01:41.824567 [debug] [Thread-4 (]: On model.marketing_analytics.mart_churn_risk: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_churn_risk"} */
+
+      drop table if exists "marketing_analytics"."main"."mart_churn_risk__dbt_backup" cascade
+    
+[0m01:01:41.822738 [debug] [Thread-2 (]: SQL status: OK in 0.007 seconds
+[0m01:01:41.822372 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m01:01:41.829275 [debug] [Thread-3 (]: Using duckdb connection "model.marketing_analytics.mart_ltv"
+[0m01:01:41.829627 [debug] [Thread-3 (]: On model.marketing_analytics.mart_ltv: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_ltv"} */
+
+      drop table if exists "marketing_analytics"."main"."mart_ltv__dbt_backup" cascade
+    
+[0m01:01:41.824198 [debug] [Thread-1 (]: On model.marketing_analytics.mart_cac: Close
+[0m01:01:41.830554 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4457f650>]}
+[0m01:01:41.831814 [debug] [Thread-4 (]: SQL status: OK in 0.007 seconds
+[0m01:01:41.833350 [debug] [Thread-4 (]: On model.marketing_analytics.mart_churn_risk: Close
+[0m01:01:41.827002 [debug] [Thread-2 (]: Using duckdb connection "model.marketing_analytics.mart_cohort_retention"
+[0m01:01:41.834379 [debug] [Thread-2 (]: On model.marketing_analytics.mart_cohort_retention: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "marketing_analytics", "target_name": "dev", "node_id": "model.marketing_analytics.mart_cohort_retention"} */
+
+      drop table if exists "marketing_analytics"."main"."mart_cohort_retention__dbt_backup" cascade
+    
+[0m01:01:41.834971 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m01:01:41.836348 [debug] [Thread-2 (]: On model.marketing_analytics.mart_cohort_retention: Close
+[0m01:01:41.836847 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc479ad0d0>]}
+[0m01:01:41.831240 [info ] [Thread-1 (]: 7 of 7 OK created sql table model main.mart_cac ................................ [[32mOK[0m in 0.11s]
+[0m01:01:41.838075 [debug] [Thread-1 (]: Finished running node model.marketing_analytics.mart_cac
+[0m01:01:41.838634 [debug] [Thread-3 (]: SQL status: OK in 0.009 seconds
+[0m01:01:41.839966 [debug] [Thread-3 (]: On model.marketing_analytics.mart_ltv: Close
+[0m01:01:41.840513 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4799a2a0>]}
+[0m01:01:41.833876 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec72f695-d4ee-4493-8a9e-1ab428bfdc36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc479b1730>]}
+[0m01:01:41.841116 [info ] [Thread-3 (]: 6 of 7 OK created sql table model main.mart_ltv ................................ [[32mOK[0m in 0.18s]
+[0m01:01:41.841724 [info ] [Thread-4 (]: 4 of 7 OK created sql table model main.mart_churn_risk ......................... [[32mOK[0m in 0.17s]
+[0m01:01:41.837486 [info ] [Thread-2 (]: 5 of 7 OK created sql table model main.mart_cohort_retention ................... [[32mOK[0m in 0.17s]
+[0m01:01:41.843570 [debug] [Thread-2 (]: Finished running node model.marketing_analytics.mart_cohort_retention
+[0m01:01:41.842538 [debug] [Thread-3 (]: Finished running node model.marketing_analytics.mart_ltv
+[0m01:01:41.843074 [debug] [Thread-4 (]: Finished running node model.marketing_analytics.mart_churn_risk
+[0m01:01:41.845450 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:41.845818 [debug] [MainThread]: On master: BEGIN
+[0m01:01:41.846190 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m01:01:41.846746 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m01:01:41.847089 [debug] [MainThread]: On master: COMMIT
+[0m01:01:41.847370 [debug] [MainThread]: Using duckdb connection "master"
+[0m01:01:41.847673 [debug] [MainThread]: On master: COMMIT
+[0m01:01:41.848209 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m01:01:41.848570 [debug] [MainThread]: On master: Close
+[0m01:01:41.848940 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m01:01:41.849256 [debug] [MainThread]: Connection 'model.marketing_analytics.mart_cac' was properly closed.
+[0m01:01:41.849489 [debug] [MainThread]: Connection 'model.marketing_analytics.mart_cohort_retention' was properly closed.
+[0m01:01:41.849710 [debug] [MainThread]: Connection 'model.marketing_analytics.mart_ltv' was properly closed.
+[0m01:01:41.849928 [debug] [MainThread]: Connection 'model.marketing_analytics.mart_churn_risk' was properly closed.
+[0m01:01:41.850567 [info ] [MainThread]: 
+[0m01:01:41.850963 [info ] [MainThread]: Finished running 4 table models, 3 view models in 0 hours 0 minutes and 0.58 seconds (0.58s).
+[0m01:01:41.852547 [debug] [MainThread]: Command end result
+[0m01:01:41.888539 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dbt_marketing_analytics/target/manifest.json
+[0m01:01:41.891167 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dbt_marketing_analytics/target/semantic_manifest.json
+[0m01:01:41.897905 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/claude/dbt_marketing_analytics/target/run_results.json
+[0m01:01:41.898325 [info ] [MainThread]: 
+[0m01:01:41.898681 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m01:01:41.898969 [info ] [MainThread]: 
+[0m01:01:41.899366 [info ] [MainThread]: Done. PASS=7 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=7
+[0m01:01:41.900423 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.4914278, "process_in_blocks": "0", "process_kernel_time": 0.15914, "process_mem_max_rss": "176776", "process_out_blocks": "3000", "process_user_time": 2.952142}
+[0m01:01:41.900895 [debug] [MainThread]: Command `dbt run` succeeded at 01:01:41.900790 after 1.49 seconds
+[0m01:01:41.901304 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc515b2f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc479d5a30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbc4cfa18e0>]}
+[0m01:01:41.901690 [debug] [MainThread]: Flushing usage events
+[0m01:01:41.960459 [debug] [MainThread]: An error was encountered while trying to flush usage events
